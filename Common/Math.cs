@@ -1,20 +1,17 @@
 using System;
 
-namespace Analytics.Common
+namespace Common
 {
   public static class Math
   {
     public static bool IsPrime(long n)
     {
-      bool result = false;
-      double maxP = Math.Sqrt(n);
-       
-      if(n == 2) 
+      bool result = true;
+      double maxP = System.Math.Sqrt(n);
+
+      if(n < 2) { result = false; }        
+      else 
       { 
-        result = true;
-      }
-      else
-      {
        for(long i=3; i < maxP; i+=2)
        {
          if(n%i == 0) { result = false; break; }
@@ -22,11 +19,6 @@ namespace Analytics.Common
       }
       
       return result;
-    }
-    
-    public static void Main(string[] args)
-    {
-      Console.WriteLine("IsPrime(17): " + IsPrime(17));
-    }
+    }    
   }
 }
